@@ -1,4 +1,4 @@
-GPPPARMAS = -m32
+GPPPARMAS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leadingunderscore
 ASPARAMS = --32
 LDPARAMS = -melf_i386
 
@@ -11,7 +11,7 @@ objects = loader.o kernel.o
 	as $(ASPARAMS) -o $@ $<
 
 mykernel.bin: linker.ld $(objects)
-	ls $(LDPARAMS) -T $< -o $@ $(objects)
+	ld $(LDPARAMS) -T $< -o $@ $(objects)
 
 install: mykernel.bin
 	sudo cp $< /boot/mykernel.bin
