@@ -16,7 +16,7 @@ extern "C" void callConstructors()
 		(*i)();
 }
 
-extern "C" void kernelMain(void* multiboot_structure, uint_32t magicnumber)
+extern "C" void kernelMain(void* multiboot_structure, uint32_t magicnumber)
 {
     printf("Hello World BenzOS the best!");
     while(1);
