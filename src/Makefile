@@ -30,5 +30,9 @@ mykernel.iso: mykernel.bin
 	echo '}' >> iso/boot/grub/grub.cfg
 	grub-mkrescue --output=$@ iso
 	rm -rf iso/
+
 run: mykernel.iso
 	VirtualBoxVM --startvm "BenzOS" &
+
+clean: 
+	rm -rf kernel.o loader.o mykernel.bin mykernel.iso
