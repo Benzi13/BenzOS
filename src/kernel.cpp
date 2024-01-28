@@ -1,4 +1,5 @@
 #include "types.h"
+#include "gdt.h"
 
 void printf(int8_t* str)
 {
@@ -19,5 +20,6 @@ extern "C" void callConstructors()
 extern "C" void kernelMain(void* multiboot_structure, uint32_t magicnumber)
 {
     printf("Hello World BenzOS the best!");
+	GlobalDescriptorTable gdt;
     while(1);
 }
